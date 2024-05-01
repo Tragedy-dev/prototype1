@@ -57,6 +57,12 @@ while True:
     laser2_state = laser2.get_value() # Get the value of our laser sensors, HIGH = 1 / Low = 0
     laser3_state = laser3.get_value()
 
+    # I could not find an edge detection documentation when I wrote this so here is my solution:
+    #   * Set a variable to a Boolean that represents if the code thinks the laser sensor should be interrupted.
+    #   * if the sensor is interrupted and the code has not acknowledged it yet --> save interrupt and change the boolean to true
+    #   * if the sensor is no longer interrupted and the code has not acknowledged the change --> save the end of the interrupt and change the the boolean to false
+    #   * this allows a toggle of each detection so the program does not get bound on only one of the interrupts.
+
     if laser1_state == 0 and isinterrupted1 == False: # If the laser returns LOW and it has not been interrupeted yet
         isinterrupted1 = True # Set the interrupt boolean to True
         counted1+=1 # add an interrupt to the counter
