@@ -48,11 +48,7 @@ counted3 = 0 # For third sensor
 lastcounted3 = 0
 
 # interrupt_list formated as [Initial sensor intrrupt, End sensor 1 intrrupt, Eject Item if True]
-interrupt_list = [[0,0]]
-
-upper = 1
-lower = 10
-line_proximity = 1.5
+interrupt_list = [[0,0,True]]
 
 while True:
     
